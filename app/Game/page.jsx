@@ -283,7 +283,19 @@ function board(props) {
         mainlogic()
     }, arr)
     // let winnername=""
-
+    useEffect(()=>{
+        if(ascore===1){
+            // winnername="A"
+            localStorage.setItem("winner",'A')
+            router.push('/Result')
+        }
+        if(bscore===1){
+            // winnername="B"
+            localStorage.setItem("winner",'B')
+            router.push('/Result')
+        }
+    },[ascore,bscore])
+    
     return (
         <>
         <div className='flex justify-center items-center h-screen w-screen'>
