@@ -2,12 +2,13 @@
 import React, { useEffect, useState } from 'react'
 import Square from '../components/square'
 import { useRouter } from 'next/navigation';
-
+import Image from 'next/image';
+import bgImage from '../pictures/landingimage.jpg'
 function board(props) {
 
 
 
-    const router=useRouter();
+    const router = useRouter();
 
     // creating array for holding values
     const [arr, setArr] = useState(Array(9).fill(""));
@@ -283,38 +284,47 @@ function board(props) {
         mainlogic()
     }, arr)
     // let winnername=""
-    useEffect(()=>{
-        if(ascore===1){
+    useEffect(() => {
+        if (ascore === 5) {
             // winnername="A"
-            localStorage.setItem("winner",'A')
+            localStorage.setItem("winner", 'A')
             router.push('/Result')
         }
-        if(bscore===1){
+        if (bscore === 5) {
             // winnername="B"
-            localStorage.setItem("winner",'B')
+            localStorage.setItem("winner", 'B')
             router.push('/Result')
         }
-    },[ascore,bscore])
-    
+    }, [ascore, bscore])
+
+    const backg = {
+        backgroundImage: `url(${bgImage.src})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'bottom'
+    }
     return (
         <>
-        <div className='flex justify-center items-center h-screen w-screen'>
-            <div className='grid grid-cols-3  h-[450px] w-[450px]'>
-                <Square value={arr[0]} onClick={() => onclickHandler(0)} />
-                <Square value={arr[1]} onClick={() => onclickHandler(1)} />
-                <Square value={arr[2]} onClick={() => onclickHandler(2)} />
-                <Square value={arr[3]} onClick={() => onclickHandler(3)} />
-                <Square value={arr[4]} onClick={() => onclickHandler(4)} />
-                <Square value={arr[5]} onClick={() => onclickHandler(5)} />
-                <Square value={arr[6]} onClick={() => onclickHandler(6)} />
-                <Square value={arr[7]} onClick={() => onclickHandler(7)} />
-                <Square value={arr[8]} onClick={() => onclickHandler(8)} />
-            </div>            
-        </div>
-        <div className="bg-black border-2 border-yellow-200 h-[50px] w-[100px]">
-                <p className='text-white text-center'>Player A: {ascore}</p>
-                <p className='text-white text-center'>Player B: {bscore}</p>
-        </div>
+            <div style={backg} className='flex justify-center items-center h-screen w-screen'>
+            <h1 className=' absolute top-0 text-9xl font-mono text-[#fff]'><span className='text-yellow-400'>Tic</span>-<span className='text-[#0ef]'>Tac</span>-<span className='text-yellow-400'>Toe</span></h1>
+                <div className='grid grid-cols-3  h-[450px] w-[450px]'>
+                    <Square value={arr[0]} onClick={() => onclickHandler(0)} />
+                    <Square value={arr[1]} onClick={() => onclickHandler(1)} />
+                    <Square value={arr[2]} onClick={() => onclickHandler(2)} />
+                    <Square value={arr[3]} onClick={() => onclickHandler(3)} />
+                    <Square value={arr[4]} onClick={() => onclickHandler(4)} />
+                    <Square value={arr[5]} onClick={() => onclickHandler(5)} />
+                    <Square value={arr[6]} onClick={() => onclickHandler(6)} />
+                    <Square value={arr[7]} onClick={() => onclickHandler(7)} />
+                    <Square value={arr[8]} onClick={() => onclickHandler(8)} />
+                </div>
+                <div className="bg-black border-2 rounded border-yellow-200 p-2 absolute bottom-3 left-0">
+                    <p className='text-white text-center'>Player A: {ascore}</p>
+                </div>
+                <div className="bg-black border-2 rounded border-yellow-200 p-2 absolute bottom-3 right-0">
+                    <p className='text-white text-center'>Player B: {bscore}</p>
+                </div>
+            </div>
+
         </>
     )
 }

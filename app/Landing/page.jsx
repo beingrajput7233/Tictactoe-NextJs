@@ -27,13 +27,13 @@ const page = () => {
     return (
         <>
             <div style={backg} className='h-screen w-screen flex flex-col justify-start items-center'>
-                <h1 className='text-9xl '><span>Tic</span>-<span>Tac</span>-<span>Toe</span></h1>
+                <h1 className='text-9xl font-mono text-[#fff]'><span className='text-yellow-400'>Tic</span>-<span className='text-[#0ef]'>Tac</span>-<span className='text-yellow-400'>Toe</span></h1>
                 <div className='flex flex-row grow items-center'>
-                    <div className="player bg-black border-2 border-yellow-200 h-[50px] w-[25px]">
-                        <button className='text-white text-center' onClick={() => { onclickHandler('X') }}>X</button>
+                    <div className="border-2 border-yellow-200 h-[200px] w-[200px] m-5 backdrop-blur-xl">
+                        <button className='text-white text-center h-[100%] w-[100%] hover:scale-110' onClick={() => { onclickHandler('X') }}><span className='text-9xl text-[#0ef]'>X</span></button>
                     </div>
-                    <div className="player bg-black border-2 border-yellow-200 h-[50px] w-[25px]">
-                        <button className='text-white text-center' onClick={() => { onclickHandler('O') }}>O</button>
+                    <div className="border-2 border-yellow-200 h-[200px] w-[200px] m-5 backdrop-blur-xl">
+                        <button className='text-white text-center h-[100%] w-[100%] hover:scale-110' onClick={() => { onclickHandler('O') }}><span className='text-9xl text-yellow-400'>O</span></button>
                     </div>
                 </div>
 
