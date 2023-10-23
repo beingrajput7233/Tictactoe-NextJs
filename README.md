@@ -1,3 +1,10 @@
+# 3tees(Tic-tac-toe)
+![3tees1](https://github.com/beingrajput7233/Tictactoe-NextJs/assets/96559745/f72f8cb9-f909-434e-b1c3-345b7e4adcf6)
+![3tees2](https://github.com/beingrajput7233/Tictactoe-NextJs/assets/96559745/2d364cfa-30bc-470e-8d8c-0ae3907cd0cf)
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
